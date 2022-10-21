@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: idle_caneton_2
+  m_Name: walking_animation_canard
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 33aa2dbee4c5ece458eac4e63cc83d20, type: 3}
-    - time: 0.21666667
-      value: {fileID: 21300000, guid: 54e58a88b54873d448d5c4fee61b49c4, type: 3}
+      value: {fileID: 21300000, guid: 6e0b489a02773894eb20b11342ea41c3, type: 3}
+    - time: 0.18333334
+      value: {fileID: 21300000, guid: 7de6398bef009ef468f8f7dbc90fa1c8, type: 3}
     - time: 0.41666666
-      value: {fileID: 21300000, guid: 33aa2dbee4c5ece458eac4e63cc83d20, type: 3}
+      value: {fileID: 21300000, guid: 6e0b489a02773894eb20b11342ea41c3, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,9 +44,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 33aa2dbee4c5ece458eac4e63cc83d20, type: 3}
-    - {fileID: 21300000, guid: 54e58a88b54873d448d5c4fee61b49c4, type: 3}
-    - {fileID: 21300000, guid: 33aa2dbee4c5ece458eac4e63cc83d20, type: 3}
+    - {fileID: 21300000, guid: 6e0b489a02773894eb20b11342ea41c3, type: 3}
+    - {fileID: 21300000, guid: 7de6398bef009ef468f8f7dbc90fa1c8, type: 3}
+    - {fileID: 21300000, guid: 6e0b489a02773894eb20b11342ea41c3, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
