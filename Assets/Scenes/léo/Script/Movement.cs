@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     public LayerMask monLayer;
  
 
-    private bool isMoving;
+    public bool isMoving;
 
 
     [SerializeField] private Rigidbody2D rb;
