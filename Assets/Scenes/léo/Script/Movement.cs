@@ -13,6 +13,9 @@ public class Movement : MonoBehaviour
     public Transform groundcheck;
     public float GroundCheckRadius;
     public LayerMask monLayer;
+ 
+
+    private bool isMoving;
 
 
     [SerializeField] private Rigidbody2D rb;
@@ -33,8 +36,17 @@ public class Movement : MonoBehaviour
              rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
          }*/
         // grounded = Physics2D.OverlapCircle(groundcheck.position, GroundCheckRadius, monLayer);
-
         
+        if(horizontal<0 || horizontal > 0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+        
+        Debug.Log(isMoving);
         Flip();
 
     }
