@@ -9,25 +9,46 @@ public class Movement : MonoBehaviour
 
     public float speed = 8f;
     public float jumpingPower = 16f;
+    private bool grounded;
+    public Transform groundcheck;
+    public float GroundCheckRadius;
+    public LayerMask monLayer;
+ 
+
+    public bool isMoving;
+
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+
 
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") )
+        if (Input.GetButtonDown("Jump")&& grounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
 
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            grounded = false;
+        }
+        /* if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+         {
+             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+         }*/
+        // grounded = Physics2D.OverlapCircle(groundcheck.position, GroundCheckRadius, monLayer);
+        
+        if(horizontal<0 || horizontal > 0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+        
+        Debug.Log(isMoving);
         Flip();
+
     }
 
     private void FixedUpdate()
@@ -35,10 +56,6 @@ public class Movement : MonoBehaviour
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
-    private bool isGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
 
     private void Flip()
     {
@@ -49,5 +66,21 @@ public class Movement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(groundcheck.position, GroundCheckRadius);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("floor"))
+        {
+            grounded = true;
+        }
+        
     }
 }
