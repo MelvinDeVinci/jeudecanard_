@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour
         }
 
         Flip();
+
     }
 
     private void FixedUpdate()
